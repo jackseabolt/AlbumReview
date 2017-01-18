@@ -1,0 +1,14 @@
+<%= simple_form_for @album do |f| %>
+ <div class="form-group">
+  <%= f.input :title, class: 'form-control' %>
+ </div>
+ <div class="form-group">
+ 	<%= f.input :artist, class: 'form-control' %>
+ </div>
+ <div class="form-group">
+  <%= f.input :year, class: 'form-control'  %>
+ </div>
+  <%= f.file_field :cover %> 
+ <br />
+  <%= f.button :submit %>
+<% end %>

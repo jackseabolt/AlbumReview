@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require jquery.raty
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$nav: #313131; 
+$link_grey: #656565; 
+h1, h2, h3, h4, h5, p {
+	color: white !important;
+}
+
+body {
+	background-color: black;
+}
+.bottom {
+	margin-bottom: 100px !important;
+}
+.index_container {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+.index_image {
+	width: 100%; 
+}
+.navbar {
+	padding: 10px; 
+	position: fixed;
+	z-index: 5;
+	top: 0px;
+	width: 100%;
+	box-shadow: 0px 0px 5px black;
+	.icon-bar {
+		background: white !important; 
+	}
+}
+.navbar_placeholder {
+	width: 100%;
+	height: 70px;
+	background-color: none;
+}
+nav {
+ 	border: $nav !important; 
+	border-radius: 0px !important; 
+	background-color: $nav  !important;
+	a {
+		color: white !important; 
+		background-color: $nav  !important;
+	} 
+	.collapsed {
+		border: 1px solid $nav  !important;
+	}
+	.collapsed:hover {
+		background: $nav !important;
+	}
+}
+
+
+.show_image {
+	width: 100%; 
+}
+.top {
+	margin-top: 30px !important;
+}
+.white {
+	color: white;
+}
+.white:hover {
+	color: white;
+}
+.grey {
+	color: $link_grey;
+}
+.grey:hover {
+	color: $link_grey;
+}
+

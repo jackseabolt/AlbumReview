@@ -1,0 +1,21 @@
+<div class="row">
+      <% @albums.each do |album| %>
+      <a href="/albums/<%= album.id %>">
+        <div class="col-lg-3 col-sm-4 col-xs-6 index_container">
+          <% if album.cover.blank? %>
+            <p><%= album.title %></p>
+            <p><%= album.artist %></p>
+            <p><%= album.year %></p>
+            <%= link_to "Show", album_path(album), class: 'grey' %>
+            <%= link_to "Edit", edit_album_path(album), class: 'grey' %>
+            <%= link_to "Destroy", album_path(album), method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
+          <% else %> 
+            <%= image_tag album.cover, class: 'index_image' %>
+          <% end %>
+        </div>
+        </a>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+</div>

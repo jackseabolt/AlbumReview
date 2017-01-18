@@ -1,0 +1,52 @@
+<div class="row">
+	<div class="col-xs-10 col-md-6 col-md-push-3 col-xs-push-1 top bottom">
+		<%= image_tag @album.cover, class: 'show_image' %>
+		<h3><%= @album.title %></h3>
+		<h4><%= @album.artist %></h4>
+		<h5><%= @album.year %></h5>
+		<% if user_signed_in? %>
+			<% if @album.user_id == current_user.id %> 
+				<%= link_to 'Edit', edit_album_path(@album), class: 'grey' %> 
+				| <%= link_to 'Delete', album_path, method: :delete, data: {confirm: "Are you sure?"} %>
+			<% end %> 
+		<% end %>
+		<br /><br />
+		<h4>Reviews</h4> 
+		<%= link_to "Add a Review", new_album_review_path(@album), class: 'grey' %>
+		<br /><br />
+		<% @album.reviews.each do |r| %>
+			<div>
+				<div class="review-rating" data-number="<%= r.rating %>">
+				</div>
+				<p><%= r.comment %></p>
+				<% if user_signed_in? %>
+					<% if current_user.id == r.user_id %> 
+						<%= link_to 'Edit', edit_album_review_path(@album, r.id), class: 'grey' %>
+						<%= link_to 'Delete', album_review_path(@album, r.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
+					<% end %> 
+				<% end %>
+				<br />
+			</div>
+		<% end %>
+	</div>
+</div>
+
+<script> 
+$('.review-rating').raty({
+	readOnly: true,
+	score: function() {
+		return $(this).attr('data-number');
+	},
+	path: '/assets/'
+});
+</script>
+
+<script>
+$('.average-review-rating').raty({
+	readOnly: true,
+	path: '/assets/',
+	score: function() {
+		return $(this).attr('data-score')
+	}
+});
+</script>
