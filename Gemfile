@@ -4,6 +4,7 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'paperclip', '~> 5.1'
 gem 'raty_ratings'
+gem 'aws', '~> 2.10', '>= 2.10.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use Puma as the app server
