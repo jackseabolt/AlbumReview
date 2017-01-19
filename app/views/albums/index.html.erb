@@ -10,7 +10,8 @@
             <%= link_to "Edit", edit_album_path(album), class: 'grey' %>
             <%= link_to "Destroy", album_path(album), method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
           <% else %> 
-            <%= image_tag album.cover, class: 'index_image' %>
+          <!-- <div class="index_image" style="background-image: url('<%= album.cover %>')"></div> -->
+           <%= image_tag album.cover, class: 'index_image medium' %> 
           <% end %>
         </div>
         </a>
@@ -18,4 +19,6 @@
     </tbody>
   </table>
   <br>
+  <p id="test"></p>
 </div>
+

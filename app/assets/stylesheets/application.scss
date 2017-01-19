@@ -17,24 +17,42 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 $nav: #313131; 
 $link_grey: #656565; 
 h1, h2, h3, h4, h5, p {
 	color: white !important;
 }
-
+label {
+	color: white;
+}
 body {
 	background-color: black;
 }
 .bottom {
 	margin-bottom: 100px !important;
 }
+.btn-grey {
+	color: white;
+	background-color: #3e5279;
+	border: none; 
+}
+.btn-grey:hover {
+	color: white;
+	background-color: #273041;
+}
 .index_container {
 	padding-left: 0px !important;
 	padding-right: 0px !important;
 }
+.index_container:hover {
+	opacity: 0.8;
+}
 .index_image {
 	width: 100%; 
+}
+.light {
+	font-weight: 100;
 }
 .navbar {
 	padding: 10px; 
@@ -72,8 +90,12 @@ nav {
 .show_image {
 	width: 100%; 
 }
+.test {
+	width: 100%;
+	height: auto;
+} 
 .top {
-	margin-top: 30px !important;
+	margin-top: 40px !important;
 }
 .white {
 	color: white;
@@ -87,4 +109,6 @@ nav {
 .grey:hover {
 	color: $link_grey;
 }
+
+
 
