@@ -5,7 +5,12 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all.order(year: :desc).order(title: :asc)
+    @albums = Album.all
+    if params[:search].nil?
+      @albums = Album.all.order(year: :desc).order(title: :asc).paginate(:page => params[:page], :per_page => 24)
+    else
+      @albums = @albums.where("albums.title || albums.year || albums.artist LIKE ?", "%#{params[:search]}%").order(year: :desc).order(title: :asc).paginate(:page => params[:page], :per_page => 24)
+    end
   end
 
   # GET /albums/1

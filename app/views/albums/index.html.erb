@@ -16,8 +16,9 @@
         </div>
         </a>
       <% end %>
-    </tbody>
-  </table>
+      <div class="col-xs-12 paginate_container">
+        <%= will_paginate @albums, class: 'apple_pagination' %>
+      </div>
   <br>
 </div>
 

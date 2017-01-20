@@ -29,6 +29,45 @@ label {
 body {
 	background-color: black;
 }
+/*start styles for pagination links*/
+.apple_pagination {
+	  background: none;
+	  border: 0px;
+	  text-align: center;
+	  padding: 1em;
+	  cursor: default; 
+	  color: white;
+}
+.apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; 
+    color: white;
+}
+.apple_pagination .disabled {
+    color: grey; 
+}
+.apple_pagination .current {
+    color: $nav;
+    font-style: normal;
+    font-weight: bold;
+    background-color: none;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+}
+.apple_pagination a {
+    text-decoration: none;
+    color: white;
+}
+.apple_pagination a:hover, .apple_pagination a:focus {
+     color: white;
+     text-decoration: underline; 
+     background: none !important;
+}
+/*end styles for pagination links*/
 .bottom {
 	margin-bottom: 100px !important;
 }
@@ -40,6 +79,15 @@ body {
 .btn-grey:hover {
 	color: white;
 	background-color: #273041;
+}
+.btn-nav {
+    color: white;
+    background-color: #545454 !important;
+    margin-left: 8px;
+}
+.btn-nav:hover {
+	background-color: #424242 !important;
+	color: white;
 }
 .index_container {
 	padding-left: 0px !important;
@@ -85,8 +133,14 @@ nav {
 		background: $nav !important;
 	}
 }
-
-
+.nav_search {
+	margin-left: 40px !important;
+}
+.paginate_container {
+	display: block !important; 
+	margin-left: auto;
+	margin-right: auto;
+}
 .show_image {
 	width: 100%; 
 }
@@ -109,6 +163,19 @@ nav {
 .grey:hover {
 	color: $link_grey;
 }
-
-
-
+.will_paginate:hover {
+	background-color: none !important;
+}
+@media screen and (max-width:767px){
+.nav_search {
+	margin-left: 0px !important;
+	margin-top: 20px;
+}
+.btn-nav {
+    color: white;
+    background-color: #545454 !important;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+}
