@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'aws', '~> 2.10', '>= 2.10.2'
+gem 'aws-sdk', '~> 2.3'
 gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
