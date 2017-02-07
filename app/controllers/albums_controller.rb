@@ -16,6 +16,11 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    if @album.reviews.blank?
+      @average_review = 0
+    else
+      @average_review = @album.reviews.average(:rating).round(2)
+    end
   end
 
   # GET /albums/new

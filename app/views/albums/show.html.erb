@@ -4,6 +4,8 @@
 		<h2><%= @album.title %></h2>
 		<h4><%= @album.artist %></h4>
 		<h5><%= @album.year %></h5>
+		<h5 style="display:inline;">Average Review</h5><div class="average-review-rating" data-score=<%= @average_review %>></div>
+		<br />
 		<% if user_signed_in? %>
 			<% if @album.user_id == current_user.id %> 
 				<%= link_to 'Edit', edit_album_path(@album), class: 'grey' %> 
