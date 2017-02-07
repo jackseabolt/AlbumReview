@@ -38,7 +38,7 @@
             <div class="form-group">
             <%= text_field_tag :search, params[:search], placeholder: 'Search', class: "form-control form-control nav_search" %>
             </div>
-            <button type="submit" class="btn btn-nav">Search</button>
+            <%= submit_tag "Search", class: "btn btn-nav" %>
           </form>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
