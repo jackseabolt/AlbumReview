@@ -4,11 +4,11 @@
 		<h2><%= @album.title %></h2>
 		<h4><%= @album.artist %></h4>
 		<h5><%= @album.year %></h5>
-		<p>Average Review</p><div class="average-review-rating" data-score=<%= @average_review %>></div>
+		<p>Average Review<div class="average-review-rating" data-score=<%= @average_review %>></div></p>
 		<% if user_signed_in? %>
 			<% if @album.user_id == current_user.id %> 
 				<%= link_to 'Edit', edit_album_path(@album), class: 'grey' %> 
-				| <%= link_to 'Delete', album_path, method: :delete, data: {confirm: "Are you sure?"} %>
+				| <%= link_to 'Delete', album_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
 			<% end %> 
 		<% end %>
 		<br /><br />
@@ -20,6 +20,21 @@
 			<%= link_to "Add a Review", new_user_session_path, class: 'grey' %>
 			<br />
 		<% end %>
+
+		<%= simple_form_for([@album, @album.reviews.build]) do |f| %>
+		<%= f.error_notification %>
+			<div id="rating-form">
+				<label>Rating</label>
+			</div>	
+		  	<div class="form-inputs">
+		  		<%= f.input :comment, as: :text, :input_html => { class: 'test', :rows => 5 } %>
+		  	</div>
+		 	<div class="form-actions">
+		    	<%= f.button :submit, class: 'btn btn-grey'  %>
+		  	</div>
+		<% end %>
+
+
 		<br />
 		<% @album.reviews.each do |r| %>
 			<div>
@@ -47,9 +62,12 @@ $('.review-rating').raty({
 	},
 	path: '/assets/'
 });
-</script>
 
-<script>
+$('#rating-form').raty({
+	path: '/assets/',
+	scoreName: 'review[rating]'
+});
+
 $('.average-review-rating').raty({
 	readOnly: true,
 	path: '/assets/',
