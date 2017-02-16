@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3 top">
+  <div class="col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3 col-lg-4 col-lg-push-4 top">
     <h2>Edit <%= resource_name.to_s.humanize %></h2>
     <br />
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -8,6 +8,7 @@
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true %>
+        <br />
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,21 +22,25 @@
           <br />
           <em><%= @minimum_password_length %> characters minimum</em>
         <% end %>
+        <br />
       </div>
 
       <div class="field">
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+        <br />
       </div>
 
       <div class="field">
         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
         <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+        <br />
       </div>
 
       <div class="actions">
         <%= f.submit "Update", class: 'btn btn-grey' %>
       </div>
+      <br /><br />
     <% end %>
 
     <h3>Cancel my account</h3>
