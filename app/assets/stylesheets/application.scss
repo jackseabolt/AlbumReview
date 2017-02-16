@@ -171,18 +171,21 @@ nav {
 	background-color: none !important;
 }
 @media screen and (max-width:767px){
-.nav_search {
-	margin-left: 0px !important;
-	margin-top: 20px;
-}
-.btn-nav {
-    color: white;
-    background-color: #545454 !important;
-    margin-left: 0px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-.top {
-	margin-top: 40px !important;
-}
+	.nav_search {
+		margin-left: 0px !important;
+		margin-top: 20px;
+	}
+	.btn-nav {
+	    color: white;
+	    background-color: #545454 !important;
+	    margin-left: 0px;
+	    margin-top: 10px;
+	    margin-bottom: 20px;
+	}
+	.logo_large {
+		font-size: 45px;
+	}
+	.top {
+		margin-top: 60px !important;
+	}
 }
