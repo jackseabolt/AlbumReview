@@ -4,7 +4,7 @@
 		<h2><%= @album.title %></h2>
 		<h4><%= @album.artist %></h4>
 		<h5><%= @album.year %></h5>
-		<p>Average Review<div class="average-review-rating" data-score=<%= @average_review %>></div></p>
+		<p class="white">Average Review<div class="average-review-rating" data-score=<%= @average_review %>></div></p>
 		<% if user_signed_in? %>
 			<% if @album.user_id == current_user.id %> 
 				<%= link_to 'Edit', edit_album_path(@album), class: 'grey' %> 
@@ -27,7 +27,7 @@
 			<div>
 				<div class="review-rating" data-number="<%= r.rating %>">
 				</div>
-				<p><%= r.comment %></p>
+				<p class="white"><%= r.comment %></p>
 				<% if user_signed_in? %>
 					<% if current_user.id == r.user_id %> 
 						<%= link_to 'Edit', edit_album_review_path(@album, r.id), class: 'grey' %> |
