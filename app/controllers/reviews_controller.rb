@@ -6,6 +6,10 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
+  def show
+    
+  end
+
   # POST /reviews
   # POST /reviews.json
   def create
