@@ -1,3 +1,5 @@
+<% provide(:title, "| #{@album.title}") %>
+
 <div class="row">
 	<div class="col-xs-10 col-md-6 col-md-push-3 col-xs-push-1 top bottom">
 		<%= image_tag @album.cover, class: 'show_image' %>
@@ -42,11 +44,6 @@
 	</div>
 </div>
 
-<meta property="og:title" content="European Travel Destinations">
-<meta property="og:description" content="Offering tour packages for individuals or groups.">
-<meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
-<meta property="og:url" content="http://euro-travel-example.com/index.htm">
-<meta name="twitter:card" content="summary_large_image">
 
 
 <script> 
