@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
     if params[:search].nil?
       @albums = Album.all.order(year: :desc).order(title: :asc).paginate(:page => params[:page], :per_page => 24)
     else
-      @albums = @albums.where("LOWER(albums.title) || LOWER(albums.year) || LOWER(albums.artist) LIKE ?", "%#{params[:search].downcase}%").order(year: :desc).order(title: :asc).paginate(:page => params[:page], :per_page => 24)
+      @albums = @albums.where("albums.title || albums.year || albums.artist LIKE ?", "%#{params[:search]}%").order(year: :desc).order(title: :asc).paginate(:page => params[:page], :per_page => 24)
     end
   end
 
