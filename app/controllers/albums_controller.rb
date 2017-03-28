@@ -17,7 +17,7 @@ class AlbumsController < ApplicationController
     else
       @average_review = @album.reviews.average(:rating).round(2)
     end
-    @review = Review.new
+    @review = @album.reviews.build
   end
 
   def new
