@@ -29,9 +29,11 @@
 				<div class="form-group">
 					<%= r.submit "Create", class: 'btn btn-grey' %>
 				</div>
-				<br />
 			<% end %> 
+		<% else %>
+			<%= link_to "Write a Review", new_album_review_path(@album), class: "grey" %> 
 		<% end %> 
+		<br /><br />
 		<h4>Reviews</h4>
 		<% if @album.reviews.empty? %> 
 			<p class="grey"><i>There are no reviews for this album yet.</i></p> 
