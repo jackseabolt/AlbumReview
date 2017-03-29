@@ -160,7 +160,10 @@ nav {
 	height: auto;
 } 
 .top {
-		margin-top: 60px; 	
+	margin-top: 60px; 	
+}
+.devisetop {
+	margin-top: 100px; 
 }
 .white {
 	color: white !important;
@@ -186,6 +189,9 @@ nav {
 	}
 }
 @media screen and (max-width:767px){
+	.devisetop {
+		margin-top: 60px; 
+	}
 	.nav_search {
 		margin-left: 0px !important;
 		margin-top: 20px;
