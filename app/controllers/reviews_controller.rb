@@ -1,6 +1,9 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_album
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
+
 
   def new
     @review = Review.new
