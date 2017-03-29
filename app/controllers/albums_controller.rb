@@ -18,6 +18,7 @@ class AlbumsController < ApplicationController
       @average_review = @album.reviews.average(:rating).round(2)
     end
     @review = Review.new(album: @album)
+    @reviews = @album.reviews.all.order(created_at: :desc)
   end
 
   def new

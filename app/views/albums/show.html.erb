@@ -14,9 +14,8 @@
 			<% end %> 
 		<% end %>
 		<br /><br />
-		<h4>Reviews</h4>
 		<% if user_signed_in? %>
-			<p class="grey">Write a review</p> 	
+			<h4>Write a Review</h4	
 			<%= form_for [@album, @review] do |r| %>
 				<div class="form-group">
 					<div id="rating-form">
@@ -32,15 +31,16 @@
 				<br />
 			<% end %> 
 		<% end %> 
+		<h4>Reviews</h4>
 		<% if @album.reviews.empty? %> 
 			<p class="grey"><i>There are no reviews for this album yet.</i></p> 
 		<% else %> 
-			<% @album.reviews.each do |r| %>
+			<% @reviews.each do |r| %>
 				<div>
 					<div class="review-rating" data-number="<%= r.rating %>">
 					</div>
 					<p class="white"><%= r.comment %></p>
-					<p class="grey"><i><%= time_ago_in_words(r.created_at) %></i></p> 
+					<p class="grey"><i>posted <%= time_ago_in_words(r.created_at) %> ago</i></p> 
 					<% if user_signed_in? %>
 						<% if current_user.id == r.user_id %> 
 							<%= link_to 'Edit', edit_album_review_path(@album, r.id), class: 'grey' %> |
