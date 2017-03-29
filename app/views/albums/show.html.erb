@@ -15,7 +15,6 @@
 		<% end %>
 		<p class="white">Average Review<div class="average-review-rating" data-score=<%= @average_review %>></div></p>
 		<br />
-		<% if user_signed_in? %>
 			<h4>Write a Review</h4	
 			<%= form_for [@album, @review] do |r| %>
 				<div class="form-group">
@@ -26,13 +25,15 @@
 				<div class="form-group">
 					<%= r.text_area :comment, class: 'form-control', placeholder: "Write a comment" %>
 				</div>
-				<div class="form-group">
-					<%= r.submit "Create", class: 'btn btn-grey' %>
-				</div>
+				<% if user_signed_in? %>
+					<div class="form-group">
+						<%= r.submit "Create", class: 'btn btn-grey' %>
+					</div>
+				<% else %>
+					<%= link_to "Create", new_album_review_path(@album), class: "btn btn-grey" %> 
+					<br />
+				<% end %> 
 			<% end %> 
-		<% else %>
-			<%= link_to "Write a Review", new_album_review_path(@album), class: "grey" %> 
-		<% end %> 
 		<br /><br />
 		<h4>Reviews</h4>
 		<% if @album.reviews.empty? %> 
