@@ -14,33 +14,45 @@
 			<% end %> 
 		<% end %>
 		<br /><br />
-		<h4>Reviews</h4> 
+		<h4>Reviews</h4>
 		<% if user_signed_in? %>
-			<%= link_to "Add a Review", new_album_review_path(@album), class: 'grey' %>
-			<br />
-		<% else %>
-			<%= link_to "Add a Review", new_user_session_path, class: 'grey' %>
-			<br />
-		<% end %>
-
-
-		<br />
-		<% @album.reviews.each do |r| %>
-			<div>
-				<div class="review-rating" data-number="<%= r.rating %>">
+			<p class="grey">Write a review</p> 	
+			<%= form_for [@album, @review] do |r| %>
+				<div class="form-group">
+					<div id="rating-form">
+						<label>Rating</label>
+					</div>	
 				</div>
-				<p class="white"><%= r.comment %></p>
-				<% if user_signed_in? %>
-					<% if current_user.id == r.user_id %> 
-						<%= link_to 'Edit', edit_album_review_path(@album, r.id), class: 'grey' %> |
-						<%= link_to 'Delete', album_review_path(@album, r.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
-						|
-					<% end %> 
-				<% end %>
-				<%= link_to 'Show', album_review_path(@album, r.id), class: 'grey' %>
-				<br /><br />
-			</div>
-		<% end %>
+				<div class="form-group">
+					<%= r.text_area :comment, class: 'form-control', placeholder: "Write a comment" %>
+				</div>
+				<div class="form-group">
+					<%= r.submit "Create", class: 'btn btn-grey' %>
+				</div>
+				<br />
+			<% end %> 
+		<% end %> 
+		<% if @album.reviews.empty? %> 
+			<p class="grey"><i>There are no reviews for this album yet.</i></p> 
+		<% else %> 
+			<% @album.reviews.each do |r| %>
+				<div>
+					<div class="review-rating" data-number="<%= r.rating %>">
+					</div>
+					<p class="white"><%= r.comment %></p>
+					<p class="grey"><i><%= time_ago_in_words(r.created_at) %></i></p> 
+					<% if user_signed_in? %>
+						<% if current_user.id == r.user_id %> 
+							<%= link_to 'Edit', edit_album_review_path(@album, r.id), class: 'grey' %> |
+							<%= link_to 'Delete', album_review_path(@album, r.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
+							<br /><br />
+						<% end %> 
+					<% else %> 
+						<br />
+					<% end %>
+				</div>
+			<% end %>
+		<% end %> 
 	</div>
 </div>
 

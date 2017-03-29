@@ -10,8 +10,6 @@ class ReviewsController < ApplicationController
     
   end
 
-  # POST /reviews
-  # POST /reviews.json
   def create
     @review = Review.new(review_params)
     @review.album_id=@album.id
@@ -24,9 +22,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+
   end
-  # PATCH/PUT /reviews/1
-  # PATCH/PUT /reviews/1.json
+
   def update
     if @review.update(review_params)
       redirect_to album_path(@album)
@@ -35,8 +33,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # DELETE /reviews/1
-  # DELETE /reviews/1.json
   def destroy
     @review.destroy
     if @review.destroy
@@ -45,14 +41,15 @@ class ReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_review
       @review = Review.find(params[:id])
     end
+    
     def set_album 
       @album = Album.find(params[:album_id])
     end 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def review_params
       params.require(:review).permit(:comment, :user_id, :album_id, :rating)
     end
