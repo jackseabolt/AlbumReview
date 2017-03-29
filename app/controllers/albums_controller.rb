@@ -17,7 +17,7 @@ class AlbumsController < ApplicationController
     else
       @average_review = @album.reviews.average(:rating).round(2)
     end
-    @review = @album.reviews.build
+    @review = Review.new(album: @album)
   end
 
   def new
@@ -63,13 +63,11 @@ class AlbumsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
 
     def set_album
       @album = Album.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
       params.require(:album).permit(:title, :artist, :year, :cover)
     end

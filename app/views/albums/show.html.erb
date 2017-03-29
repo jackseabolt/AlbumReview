@@ -16,8 +16,7 @@
 		<br /><br />
 		<h4>Reviews</h4>
 		<% if user_signed_in? %>
-			<p class="grey">Write a review</p> 
-			
+			<p class="grey">Write a review</p> 	
 			<%= form_for [@album, @review] do |r| %>
 				<div class="form-group">
 					<div id="rating-form">
@@ -32,10 +31,9 @@
 				</div>
 			<% end %> 
 		<% end %> 
-
 		<br />
 		<% @album.reviews.each do |r| %>
-			<div class="red">
+			<div>
 				<div class="review-rating" data-number="<%= r.rating %>">
 				</div>
 				<p class="white"><%= r.comment %></p>
