@@ -6,14 +6,15 @@
 		<h2><%= @album.title %></h2>
 		<h4><%= @album.artist %></h4>
 		<h5><%= @album.year %></h5>
-		<p class="white">Average Review<div class="average-review-rating" data-score=<%= @average_review %>></div></p>
 		<% if user_signed_in? %>
 			<% if @album.user_id == current_user.id %> 
 				<%= link_to 'Edit', edit_album_path(@album), class: 'grey' %> 
 				| <%= link_to 'Delete', album_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
+				<br /><br />
 			<% end %> 
 		<% end %>
-		<br /><br />
+		<p class="white">Average Review<div class="average-review-rating" data-score=<%= @average_review %>></div></p>
+		<br />
 		<% if user_signed_in? %>
 			<h4>Write a Review</h4	
 			<%= form_for [@album, @review] do |r| %>
