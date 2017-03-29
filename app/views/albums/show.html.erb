@@ -27,25 +27,32 @@
 					<%= r.text_area :comment, class: 'form-control', placeholder: "Write a comment" %>
 				</div>
 				<div class="form-group">
-					<%= r.submit "Create", class: 'btn btn-success' %>
+					<%= r.submit "Create", class: 'btn btn-grey' %>
 				</div>
+				<br />
 			<% end %> 
 		<% end %> 
-		<br />
-		<% @album.reviews.each do |r| %>
-			<div>
-				<div class="review-rating" data-number="<%= r.rating %>">
+		<% if @album.reviews.empty? %> 
+			<p class="grey"><i>There are no reviews for this album yet.</i></p> 
+		<% else %> 
+			<% @album.reviews.each do |r| %>
+				<div>
+					<div class="review-rating" data-number="<%= r.rating %>">
+					</div>
+					<p class="white"><%= r.comment %></p>
+					<p class="grey"><i><%= time_ago_in_words(r.created_at) %></i></p> 
+					<% if user_signed_in? %>
+						<% if current_user.id == r.user_id %> 
+							<%= link_to 'Edit', edit_album_review_path(@album, r.id), class: 'grey' %> |
+							<%= link_to 'Delete', album_review_path(@album, r.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
+							<br /><br />
+						<% end %> 
+					<% else %> 
+						<br />
+					<% end %>
 				</div>
-				<p class="white"><%= r.comment %></p>
-				<% if user_signed_in? %>
-					<% if current_user.id == r.user_id %> 
-						<%= link_to 'Edit', edit_album_review_path(@album, r.id), class: 'grey' %> |
-						<%= link_to 'Delete', album_review_path(@album, r.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
-					<% end %> 
-				<% end %>
-				<br /><br />
-			</div>
-		<% end %>
+			<% end %>
+		<% end %> 
 	</div>
 </div>
 
