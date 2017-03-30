@@ -1,0 +1,26 @@
+<div>
+	<div class="review-rating" data-number="<%= @review.rating %>">
+	</div>
+	<p class="white"><%= @review.comment %></p>
+	<p class="grey"><i>posted <%= time_ago_in_words(@review.created_at) %> ago</i></p> 
+	<% if user_signed_in? %>
+		<% if current_user.id == @review.user_id %> 
+			<%= link_to 'Edit', edit_album_review_path(@album, @review.id), class: 'grey' %> |
+			<%= link_to 'Delete', album_review_path(@album, @review.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
+			<br /><br />
+		<% end %> 
+	<% else %> 
+		<br />
+	<% end %>
+</div>
+
+
+<script> 
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-number');
+		},
+		path: '/assets/'
+	});
+</script>

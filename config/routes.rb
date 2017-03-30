@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   	resources :reviews
   end
   root 'albums#index'
+
+
+  mount ActionCable.server => '/cable'
 end

@@ -16,7 +16,7 @@
 		<p class="white">Average Review<div class="average-review-rating" data-score=<%= @average_review %>></div></p>
 		<br />
 			<h4>Write a Review</h4>	
-			<%= form_for [@album, @review] do |r| %>
+			<%= form_for [@album, @review], remote: true do |r| %>
 				<div class="form-group">
 					<div id="rating-form">
 						<label>Rating</label>
@@ -39,23 +39,25 @@
 		<% if @album.reviews.empty? %> 
 			<p class="grey"><i>There are no reviews for this album yet.</i></p> 
 		<% else %> 
-			<% @reviews.each do |r| %>
-				<div>
-					<div class="review-rating" data-number="<%= r.rating %>">
+			<div id="reviews"> <!--- ActionCable -->
+				<% @reviews.each do |r| %>
+					<div>
+						<div class="review-rating" data-number="<%= r.rating %>">
+						</div>
+						<p class="white"><%= r.comment %></p>
+						<p class="grey"><i>posted <%= time_ago_in_words(r.created_at) %> ago</i></p> 
+						<% if user_signed_in? %>
+							<% if current_user.id == r.user_id %> 
+								<%= link_to 'Edit', edit_album_review_path(@album, r.id), class: 'grey' %> |
+								<%= link_to 'Delete', album_review_path(@album, r.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
+								<br /><br />
+							<% end %> 
+						<% else %> 
+							<br />
+						<% end %>
 					</div>
-					<p class="white"><%= r.comment %></p>
-					<p class="grey"><i>posted <%= time_ago_in_words(r.created_at) %> ago</i></p> 
-					<% if user_signed_in? %>
-						<% if current_user.id == r.user_id %> 
-							<%= link_to 'Edit', edit_album_review_path(@album, r.id), class: 'grey' %> |
-							<%= link_to 'Delete', album_review_path(@album, r.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'grey' %>
-							<br /><br />
-						<% end %> 
-					<% else %> 
-						<br />
-					<% end %>
-				</div>
-			<% end %>
+				<% end %>
+			<div id="reviews"> <!--- ActionCable -->
 		<% end %> 
 	</div>
 </div>

@@ -18,10 +18,12 @@ class ReviewsController < ApplicationController
     @review.album_id=@album.id
     @review.user_id=current_user.id
     if @review.save
-        redirect_to album_path(@album)
+        ActionCable.server.broadcast 'reviews' ,
+        render( partial: 'reviews/review', object: @review )
     else
         render 'new'
     end
+    redirect_to album_path(@album)
   end
 
   def edit
