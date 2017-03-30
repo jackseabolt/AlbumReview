@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
     else
         render 'new'
     end
-    #redirect_to album_path(@album)
+    redirect_to album_path(@album)
   end
 
   def edit
