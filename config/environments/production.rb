@@ -1,7 +1,7 @@
 Rails.application.configure do
   
-  config.web_socket_server_url = "wss://albumreview.herokuapp.com/cable" 
-  config.action_cable.allowed_request_origins = ['https://albumreview.herokuapp.com', 'http://albumreview.herokuapp.com']
+  #config.web_socket_server_url = "wss://albumreview.herokuapp.com/cable" 
+  #config.action_cable.allowed_request_origins = ['https://albumreview.herokuapp.com', 'http://albumreview.herokuapp.com']
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
