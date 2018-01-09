@@ -1,5 +1,4 @@
 <h1 align="center">AlbumReview</h1>
-<h1>FRONT-END</h1>
 <p><em>This document provides general information on the AlbumReview Ruby on Rails application.</em></p>
 
 
