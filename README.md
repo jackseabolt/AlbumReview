@@ -1,24 +1,27 @@
-# README
+<h1 align="center">AlbumReview</h1>
+<h1>FRONT-END</h1>
+<p><em>This document provides general information on the AlbumReview Ruby on Rails application.</em></p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Why AlbumReview
+-------------
+Are you a music lover? Do you like getting music recommendations from friends? This application is for you! AlbumReview allows music lovers to share their experiences with friends online. Upload the artwork for your favorite record and let other users know what you think! 
 
-* Ruby version
+For local use
+--------
 
-* System dependencies
+```bash
+# Clone repository
+git clone https://github.com/jackseabolt/albumreview.git
 
-* Configuration
+# Change directory
+cd AlbumReview
 
-* Database creation
+# Install NPM dependencies
+bundle install
 
-* Database initialization
+# Start the server
+rails s
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Go to localhost:3000
+```
