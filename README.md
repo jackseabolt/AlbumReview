@@ -7,7 +7,7 @@ Are you a music lover? Do you like getting music recommendations from friends? T
 
 Technology 
 ------------
-Ruby on Rails, Devise, Paperclip, PostgreSQL
+Ruby on Rails, Ruby, Devise, Paperclip, PostgreSQL, HTML, SASS, raty_ratings, will_paginate
 
 For local use
 --------
