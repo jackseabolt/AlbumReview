@@ -27,3 +27,7 @@ rails s
 
 # Go to localhost:3000
 ```
+Author
+--------
+Jack Seabolt
+
