@@ -1,6 +1,7 @@
 <h1 align="center">AlbumReview</h1>
 <p><em>This document provides general information on the AlbumReview Ruby on Rails application.</em></p>
 
+<image src="/assets/images/screenshot1.png" />
 
 Why AlbumReview
 -------------
