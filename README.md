@@ -6,6 +6,19 @@ Why AlbumReview
 -------------
 Are you a music lover? Do you like getting music recommendations from friends? This application is for you! AlbumReview allows music lovers to share their experiences with friends online. Upload the artwork for your favorite record and let other users know what you think! 
 
+How it Works
+------------
+<table layout="fixed">
+  <tr>
+    <td width="55%">
+      <p>Buzz-Kill's main screen displays colored boxes representing each patron in the establishment.</p>
+    </td>
+    <td width = "40%">
+      <img src="assests/images/screenshot1.png" max-height="240px" width="auto">
+    </td>
+  </tr>
+</table?
+
 For local use
 --------
 
